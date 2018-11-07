@@ -8,6 +8,7 @@ from __future__ import unicode_literals
 
 import collections
 import logging
+import random
 import socket
 
 import dns.exception
@@ -58,6 +59,7 @@ def _build_result_set(answer):
         else:
             result_set.append((target.rstrip('.'), resource.port,
                                resource.priority, resource.weight))
+    random.shuffle(result_set)
     return result_set
 
 
